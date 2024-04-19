@@ -12,7 +12,7 @@ const GetEtherPrices=async function () {
       // Store Ethereum price in MongoDB
       const newPrice = new etherPriceSchema({ price: ethereumPrice });
       await newPrice.save();
-  
+   
       console.log(`Ethereum price fetched and stored: $${etherPriceSchema}`);
     } catch (error) {
       console.error('Error fetching and storing Ethereum price:', error);
