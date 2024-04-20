@@ -11,8 +11,11 @@ const getUserTransaction= async function(req,res){
     const apiEndpoint = `https://api.etherscan.io/api?module=account&action=txlist&address=${address}&startblock=0&endblock=99999999&sort=desc&apikey=${ETHERSCAN_API_KEY}`;
     const response = await axios.get(apiEndpoint);
     const transactions = response.data.result;
+
+    //Storing the transaction details in database.(No validation added to avoid duplicate transaction as it was not mentioned)
     await UserTransactionModel.insertMany(transactions);
     res.json(transactions);
+    
 }catch (error) {
     console.error('Error fetching transactions:', error);
     res.status(500).json({ error: 'Internal Server Error' });

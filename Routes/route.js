@@ -10,4 +10,4 @@ router.get('/GetEtherPrices', GetEtherPrices.GetEtherPrices)
 
 router.get('/getUserBalance/:address', getUserBalance.getUserBalance)
 
-  module.exports = router;
+module.exports = router;

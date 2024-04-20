@@ -20,9 +20,11 @@ const getUserBalance= async function(req,res){
       balance : balance,
       etherPrice : etherPrice
     }
-    console.log(data);
+    
+    //Storing the balances and etherprices fetched in the database against the address of the user
     await UserBalanceSchema.insertMany(data);
     res.json({address,balance,etherPrice});
+    
 }catch (error) {
     console.error('Error fetching transactions:', error);
     res.status(500).json({ error: 'Internal Server Error' });

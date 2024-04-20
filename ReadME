@@ -1,5 +1,0 @@
-URL To Get Ether Price = 43.204.238.101:3000/GetEtherPrices
-
-URL To Get User Transactions = 43.204.238.101:3000/getCrytoTransactions/0xce94e5621a5f7068253c42558c147480f38b5e0d
-
-URL To Get User Balance = 43.204.238.101:3000/getUserBalance/0xce94e5621a5f7068253c42558c147480f38b5e0d
