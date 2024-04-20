@@ -14,8 +14,12 @@ const getUserTransaction= async function(req,res){
 
     //Storing the transaction details in database.(No validation added to avoid duplicate transaction as it was not mentioned)
     await UserTransactionModel.insertMany(transactions);
-    res.json(transactions);
-    
+    res.json({
+      status:200,
+      message:"Successfully fetched all transactions of user",
+      Transactions: transactions
+    });
+
 }catch (error) {
     console.error('Error fetching transactions:', error);
     res.status(500).json({ error: 'Internal Server Error' });

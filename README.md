@@ -1,21 +1,12 @@
-URL To Get Ether Price = 43.204.238.101:3000/GetEtherPrices
-
-URL To Get User Transactions = 43.204.238.101:3000/getCrytoTransactions/0xce94e5621a5f7068253c42558c147480f38b5e0d
-
-URL To Get User Balance = 43.204.238.101:3000/getUserBalance/0xce94e5621a5f7068253c42558c147480f38b5e0d
-
-Response Examples:
-1)GET EtherPrice: The price get updated in the database every 10 minutes.There is no response send in Postman. It simply enters updated price.
-
-{"_id":{"$oid":"6622fe7ae29f830042fb0a07"},
-"price":{"$numberInt":"254133"},
-"timestamp":{"$date":{"$numberLong":"1713569402046"}},
-"__v":{"$numberInt":"0"}}
 
 
-2)GET User Transactions:
+1)URL To Get User Transactions = 43.204.238.101:3000/getCrytoTransactions/0xce94e5621a5f7068253c42558c147480f38b5e0d
 
-[
+Response Example:
+{
+    "status": 200,
+    "message": "Successfully fetched all transactions of user",
+    "Transactions":[
     {
         "blockNumber": "18504760",
         "timeStamp": "1699174607",
@@ -37,13 +28,26 @@ Response Examples:
         "confirmations": "1189286",
         "methodId": "0x",
         "functionName": ""
-    },]
+    },]}
 
+2)URL To Get User Balance & Ether Price= 43.204.238.101:3000/getUserBalance/0xce94e5621a5f7068253c42558c147480f38b5e0d
 
-3)GET User Balances:
-
+Response Example:
 {
+    "status": 200,
+    "message": "Successfully fetched balance of user & current Ether price",
     "address": "0xce94e5621a5f7068253c42558c147480f38b5e0d",
     "balance": "40201916993711776",
-    "etherPrice": 254400
+    "etherPrice": 255648
 }
+
+3)URL To Get Ether Price = 43.204.238.101:3000/GetEtherPrices
+
+Note:The updated price gets stored in the database every 10 minutes.There is no response send in this api as scheduler will stop.
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@ const cron = require('node-cron');
 const etherPriceSchema=require("../Models/GetEtherPrices")
 
 //Service to get Ether Prices every 10 mins from Ethereum.
-const GetEtherPrices=async function () {
+const GetEtherPrices=async function (req,res) {
     try {
       // Fetching Ethereum price from an API (here using CoinGecko)
       const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=inr');
