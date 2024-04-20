@@ -2,7 +2,7 @@
 
 1)URL To Get User Transactions = 43.204.238.101:3000/getCrytoTransactions/0xce94e5621a5f7068253c42558c147480f38b5e0d
 
-Response Example:
+API Response Example:
 {
     "status": 200,
     "message": "Successfully fetched all transactions of user",
@@ -30,9 +30,20 @@ Response Example:
         "functionName": ""
     },]}
 
+Database Response Format:
+{
+    "_id":{"$oid":"662175fafdffeb75579cb682"},
+    "blockNumber":"15143026",
+    "hash":"0xea9426ac679be9775f81f0f10a27b78b920891d48422870a5477db31681248f1",
+    "from":"0x8a8382e0dca6586569e33958f446b129d8e8730d",
+    "to":"0xce94e5621a5f7068253c42558c147480f38b5e0d",
+    "value":"10500000000000000",
+    "__v":{"$numberInt":"0"}
+}
+
 2)URL To Get User Balance & Ether Price= 43.204.238.101:3000/getUserBalance/0xce94e5621a5f7068253c42558c147480f38b5e0d
 
-Response Example:
+API Response Example:
 {
     "status": 200,
     "message": "Successfully fetched balance of user & current Ether price",
@@ -41,10 +52,24 @@ Response Example:
     "etherPrice": 255648
 }
 
+Database Response Example:
+{
+    "_id":{"$oid":"66234b40598db56798f1392a"},
+"Address":"0xce94e5621a5f7068253c42558c147480f38b5e0d",
+"balance":"40201916993711776",
+"etherPrice":{"$numberInt":"255460"},
+"__v":{"$numberInt":"0"}
+}
+
 3)URL To Get Ether Price = 43.204.238.101:3000/GetEtherPrices
 
 Note:The updated price gets stored in the database every 10 minutes.There is no response send in this api as scheduler will stop.
 
+Database Format:
+{"_id":{"$oid":"6621771079759dc3e697cbd2"},
+"price":{"$numberInt":"256060"},
+"timestamp":{"$date":{"$numberLong":"1713469200965"}},
+"__v":{"$numberInt":"0"}}
 
 
 
